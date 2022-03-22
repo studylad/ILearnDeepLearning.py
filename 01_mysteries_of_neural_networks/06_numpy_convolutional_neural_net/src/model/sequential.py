@@ -94,7 +94,7 @@ class SequentialModel:
 
     def _forward(self, x: np.array, training: bool) -> np.array:
         activation = x
-        for idx, layer in enumerate(self._layers):
+        for layer in self._layers:
             activation = layer.forward_pass(a_prev=activation, training=training)
         return activation
 

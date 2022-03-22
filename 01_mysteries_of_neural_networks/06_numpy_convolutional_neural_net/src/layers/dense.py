@@ -37,9 +37,7 @@ class DenseLayer(Layer):
 
     @property
     def gradients(self) -> Optional[Tuple[np.array, np.array]]:
-        if self._dw is None or self._db is None:
-            return None
-        return self._dw, self._db
+        return None if self._dw is None or self._db is None else (self._dw, self._db)
 
     def forward_pass(self, a_prev: np.array, training: bool) -> np.array:
         """
